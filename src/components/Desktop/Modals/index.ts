@@ -1,0 +1,9 @@
+export { default as Award } from './Award';
+export { default as BaseModal } from './BaseModal';
+export { default as Certificate } from './Certificate';
+export { default as Finder } from './Finder';
+export { default as History } from './History';
+export { default as Info } from './Info';
+export { default as Project } from './Project';
+export { default as Settings } from './Settings';
+export { default as Skill } from './Skill';
