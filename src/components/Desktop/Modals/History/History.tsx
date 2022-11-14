@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 function History() {
-  return <Container>History</Container>;
+  return <Container>Historyzzz</Container>;
 }
 
 export default History;

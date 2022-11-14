@@ -1,38 +1,46 @@
-import { useEffect } from 'react';
+import { Children, useEffect, useState } from 'react';
 
 import { itemList } from '@constants/dock';
 import styled from '@emotion/styled';
 import { DockItemType } from '@interfaces/dock';
-import { Dock, Header } from '~/components/Desktop';
+import { Dock, Header, Modals } from '~/components/Desktop';
 import { bgImgAtom } from '~/store';
 import { useRecoilState } from 'recoil';
 
 function Home() {
   const [bgImg, setBgImg] = useRecoilState(bgImgAtom);
+  const [items, setItems] = useState(itemList);
 
   const handleOpenModal = (id: string, nowOpen = false) => {
-    const index = itemList.findIndex((item: DockItemType) => item.id === id);
-    const zIndexs = itemList.map((item: DockItemType) => item.zIndex);
+    const tempItems = items.map((item) => item);
+    const index = tempItems.findIndex((item: DockItemType) => item.id === id);
+    const zIndexs = tempItems.map((item: DockItemType) => item.zIndex);
 
-    itemList[index].zIndex = Math.max(...zIndexs) + 1;
-    itemList[index].isOpen = true;
-    itemList[index].nowOpen = nowOpen;
+    tempItems[index].zIndex = Math.max(...zIndexs) + 1;
+    tempItems[index].isOpen = true;
+    tempItems[index].nowOpen = nowOpen;
+
+    setItems(tempItems);
   };
 
   const handleCloseModal = (id: string) => {
-    const index = itemList.findIndex((item: DockItemType) => item.id === id);
+    const tempItems = items.map((item) => item);
+    const index = tempItems.findIndex((item: DockItemType) => item.id === id);
 
-    itemList[index].zIndex = 0;
-    itemList[index].isOpen = false;
+    tempItems[index].zIndex = 0;
+    tempItems[index].isOpen = false;
+    setItems(tempItems);
   };
 
   const handleUpperModal = (id: string) => {
-    const index = itemList.findIndex((item: DockItemType) => item.id === id);
-    const zIndexs = itemList.map((item: DockItemType) => item.zIndex);
+    const tempItems = items.map((item) => item);
+    const index = tempItems.findIndex((item: DockItemType) => item.id === id);
+    const zIndexs = tempItems.map((item: DockItemType) => item.zIndex);
     const maxIndex = Math.max(...zIndexs);
 
-    if (itemList[index].zIndex < maxIndex) {
-      itemList[index].zIndex = maxIndex + 1;
+    if (tempItems[index].zIndex < maxIndex) {
+      tempItems[index].zIndex = maxIndex + 1;
+      setItems(tempItems);
     }
   };
 
@@ -44,23 +52,27 @@ function Home() {
 
   return (
     <Container>
-      <Header itemList={itemList} onOpenModal={handleOpenModal} onUpperModal={handleUpperModal} />
-      <BackgroundImg src={bgImg.src} alt="background" draggable="false" />
+      <>
+        <Header itemList={items} onOpenModal={handleOpenModal} onUpperModal={handleUpperModal} />
+        <BackgroundImg src={bgImg.src} alt="background" draggable="false" />
 
-      {/* {itemList.map((item) => {
-        item.isOpen && (
-          <BaseModal
-            item="{item}"
-            absoluteHeader="{item?.isAbsoluteHeader}"
-            nowOpen="{item.nowOpen}"
-            onCloseModal="{handleCloseModal}"
-            onUpperModal="{handleUpperModal}"
-          >
-            <svelte:component this="{item.component}" />
-          </BaseModal>
-        );
-      })} */}
-      <Dock itemList={itemList} onOpenModal={handleOpenModal} onUpperModal={handleUpperModal} />
+        {Children.toArray(
+          items.map(
+            (item) =>
+              item.isOpen && (
+                <Modals.BaseModal
+                  item={item}
+                  onCloseModal={handleCloseModal}
+                  onUpperModal={handleUpperModal}
+                >
+                  <item.component />
+                </Modals.BaseModal>
+              ),
+          ),
+        )}
+
+        <Dock itemList={items} onOpenModal={handleOpenModal} onUpperModal={handleUpperModal} />
+      </>
     </Container>
   );
 }

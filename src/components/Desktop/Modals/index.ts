@@ -1,9 +1,13 @@
-export { default as Award } from './Award';
-export { default as BaseModal } from './BaseModal';
-export { default as Certificate } from './Certificate';
-export { default as Finder } from './Finder';
-export { default as History } from './History';
-export { default as Info } from './Info';
-export { default as Project } from './Project';
-export { default as Settings } from './Settings';
-export { default as Skill } from './Skill';
+import Award from './Award';
+import BaseModal from './BaseModal';
+import Certificate from './Certificate';
+import Finder from './Finder';
+import History from './History';
+import Info from './Info';
+import Project from './Project';
+import Settings from './Settings';
+import Skill from './Skill';
+
+export { Award, BaseModal, Certificate, Finder, History, Info, Project, Settings, Skill };
+
+export default { Award, BaseModal, Certificate, Finder, History, Info, Project, Settings, Skill };
