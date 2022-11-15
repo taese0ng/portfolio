@@ -1,13 +1,7 @@
-import {
-  Award,
-  Certificate,
-  History,
-  Info,
-  Project,
-  Settings,
-  Skill,
-} from '@components/Desktop/Modals';
+import { Modals } from '@components/Desktop';
 import { DockItemType } from '@interfaces/dock';
+
+const { Info, Award, Certificate, Skill, History, Project, Settings } = Modals;
 
 const iconUrl = process.env.PUBLIC_URL + 'assets/images/icons';
 

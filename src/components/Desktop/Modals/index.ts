@@ -8,6 +8,4 @@ import Project from './Project';
 import Settings from './Settings';
 import Skill from './Skill';
 
-export { Award, BaseModal, Certificate, Finder, History, Info, Project, Settings, Skill };
-
 export default { Award, BaseModal, Certificate, Finder, History, Info, Project, Settings, Skill };

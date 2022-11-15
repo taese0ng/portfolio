@@ -28,7 +28,7 @@ function Dock({ itemList, onOpenModal, onUpperModal }: Props) {
   };
 
   return (
-    <Container>
+    <Container id="dock">
       <Menu>
         <MenuItemWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <MenuItemTitle isHover={safariIsHover}>safari</MenuItemTitle>
