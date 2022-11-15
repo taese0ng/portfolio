@@ -42,7 +42,7 @@ function BaseModal({ item, onCloseModal, onUpperModal, children }: Props) {
       resizeObj.current.top = parseFloat(containerRef.current.style.top);
       resizeObj.current.left = parseFloat(containerRef.current.style.left);
 
-      sessionStorage.setItem(`${item.id}LocationCoords`, JSON.stringify(resizeObj));
+      sessionStorage.setItem(`${item.id}LocationCoords`, JSON.stringify(resizeObj.current));
     }
   };
 
@@ -54,6 +54,7 @@ function BaseModal({ item, onCloseModal, onUpperModal, children }: Props) {
       } else if (isResizeClicked) {
         const height = resizeObj.current.bottom - e.pageY;
         const width = resizeObj.current.right - e.pageX;
+
         switch (resizeObj.current.dir) {
           case 'top':
             if (containerMinHeight < height) {
@@ -204,8 +205,6 @@ function BaseModal({ item, onCloseModal, onUpperModal, children }: Props) {
       }
       containerRef.current.style.minWidth = `${containerMinWidth}px`;
       containerRef.current.style.minHeight = `${containerMinHeight}px`;
-      window.addEventListener('mousemove', onMouseMove);
-      window.addEventListener('mouseup', onMouseUp);
 
       setTimeout(
         () => {
@@ -214,12 +213,17 @@ function BaseModal({ item, onCloseModal, onUpperModal, children }: Props) {
         item.nowOpen ? 0 : 900,
       );
     }
+  }, [containerRef]);
+
+  useEffect(() => {
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseup', onMouseUp);
     };
-  }, [isClicked, containerRef]);
+  }, [isClicked, isResizeClicked]);
 
   return (
     <Container
@@ -375,11 +379,10 @@ const RightSetter = styled(Setter)`
 `;
 
 const LeftSetter = styled(Setter)`
-  right: 0;
-  bottom: 0;
-  width: 10px;
-  height: 10px;
-  cursor: se-resize;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  cursor: w-resize;
 `;
 
 const RBSetter = styled(Setter)`
