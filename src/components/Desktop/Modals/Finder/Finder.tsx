@@ -2,56 +2,57 @@ import { useEffect, useRef, useState } from 'react';
 
 import styled from '@emotion/styled';
 
-const localStorageWidth = localStorage.getItem('finder_sidebar_width');
-const finderWidth = localStorageWidth ? JSON.parse(localStorageWidth) : 200;
-
 function Finder() {
+  const localStorageWidth = localStorage.getItem('finder_sidebar_width');
+  const finderWidth = localStorageWidth ? JSON.parse(localStorageWidth) : 200;
   const containerRef = useRef<HTMLDivElement>(null);
-  const widthSetterRef = useRef<HTMLSpanElement>(null);
-  const [width, setWidth] = useState(finderWidth);
+  const [sideBarWidth, setSideBarWidth] = useState(finderWidth);
   const [isClicked, setIsClicked] = useState(false);
 
-  const onMouseDown = () => {
+  const handleMouseDown = () => {
     setIsClicked(true);
   };
 
-  const onMouseUp = () => {
+  const handleMouseUp = () => {
     setIsClicked(false);
-    localStorage.setItem('finder_sidebar_width', JSON.stringify(width));
+    localStorage.setItem('finder_sidebar_width', JSON.stringify(sideBarWidth));
   };
 
-  const onMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = (e: MouseEvent) => {
     if (isClicked && containerRef.current) {
       const containerLeft = containerRef.current.getBoundingClientRect().left;
       const sideBarWidth = e.pageX - containerLeft;
       if (sideBarWidth <= 100) {
-        setWidth(100);
+        setSideBarWidth(100);
       } else if (sideBarWidth >= 450) {
-        setWidth(450);
+        setSideBarWidth(450);
       } else {
-        setWidth(sideBarWidth);
+        setSideBarWidth(sideBarWidth);
       }
     }
   };
 
   useEffect(() => {
-    widthSetterRef.current?.addEventListener('mousedown', onMouseDown);
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', onMouseUp);
+    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      widthSetterRef.current?.removeEventListener('mousedown', onMouseDown);
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseup', onMouseUp);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [isClicked]);
+
+  useEffect(() => {
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [sideBarWidth]);
 
   return (
     <Container ref={containerRef}>
       <SideBarWrapper>
-        <SideBar width={width}>SideBar</SideBar>
+        <SideBar width={sideBarWidth}>SideBar</SideBar>
 
-        <WidthSetter ref={widthSetterRef}></WidthSetter>
+        <WidthSetter onMouseDown={handleMouseDown}></WidthSetter>
       </SideBarWrapper>
 
       <BodyWrapper>
