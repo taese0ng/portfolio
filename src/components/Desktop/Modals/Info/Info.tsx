@@ -1,3 +1,5 @@
+import { Children } from 'react';
+
 import { contents, profileImg } from '@constants/info';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -10,7 +12,7 @@ function Info() {
   return (
     <Container>
       <ProfileImg>
-        <img src={profileImg} alt="profileImg" />
+        <img draggable={false} src={profileImg} alt="profileImg" />
       </ProfileImg>
 
       <ProfileContents>
@@ -18,15 +20,17 @@ function Info() {
           <div>김태성</div>
         </ProfileContentsName>
 
-        {contents.map((content) => (
-          <ContentsLink
-            isLink={Boolean(content.link)}
-            onClick={() => handleClickContent(content?.link)}
-          >
-            <ContentsIcon src={content.icon} alt={content.id} />
-            <span>{content.text}</span>
-          </ContentsLink>
-        ))}
+        {Children.toArray(
+          contents.map((content) => (
+            <ContentsLink
+              isLink={Boolean(content.link)}
+              onClick={() => handleClickContent(content?.link)}
+            >
+              <ContentsIcon draggable={false} src={content.icon} alt={content.id} />
+              <span>{content.text}</span>
+            </ContentsLink>
+          )),
+        )}
       </ProfileContents>
     </Container>
   );

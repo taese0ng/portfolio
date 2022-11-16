@@ -24,7 +24,7 @@ function Award() {
         {Children.toArray(
           awardList.map((award) => (
             <Item onClick={() => handleClickItem(award)}>
-              <ItemImg src={award.thumb} alt={award.title} />
+              <ItemImg draggable={false} src={award.thumb} alt={award.title} />
               <ItemTitle>
                 {award.title} ({award.class})
               </ItemTitle>
@@ -36,7 +36,7 @@ function Award() {
       {isOpenPopup && selectedAward && (
         <Popup onClosePopup={handleClosePopup} hasCloseBtn>
           <ImageWrapper>
-            <img src={selectedAward.src} alt={selectedAward.title} />
+            <img draggable={false} src={selectedAward.src} alt={selectedAward.title} />
           </ImageWrapper>
         </Popup>
       )}

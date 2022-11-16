@@ -41,7 +41,7 @@ function Popup({ onClosePopup, hasCloseBtn = false, children }: Props) {
       <SlotWrapper onClick={handleClickSlot}>
         {hasCloseBtn && (
           <CloseBtn onClick={handleClosePopup}>
-            <img src={closeIcon} alt="closeBtn" />
+            <img draggable={false} src={closeIcon} alt="closeBtn" />
           </CloseBtn>
         )}
 

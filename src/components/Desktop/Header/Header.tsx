@@ -49,7 +49,7 @@ function Header({ itemList, onOpenModal, onUpperModal }: Props) {
       <Left>
         <ElementWrapper>
           <LogoWrapper tabIndex={0} onFocus={handleFocusMenu} onBlur={handleBlurMenu}>
-            <img src={logoImg} alt="logo" />
+            <img draggable={false} src={logoImg} alt="logo" />
           </LogoWrapper>
 
           {isFocusedPopup && (

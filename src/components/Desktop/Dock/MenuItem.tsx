@@ -41,7 +41,7 @@ function MenuItem({ item, onOpenModal, onUpperModal }: Props) {
       <MenuItemTitle isHover={isHover}>{item.title}</MenuItemTitle>
 
       <MenuItemIcon isBounce={bounce} onClick={(e) => onClickMenu(e, item)}>
-        <img src={item.icon} alt={item.title} />
+        <img draggable={false} src={item.icon} alt={item.title} />
       </MenuItemIcon>
 
       {item.isOpen && <MenuItemDot></MenuItemDot>}

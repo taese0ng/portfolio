@@ -24,7 +24,7 @@ function Certificate() {
         {Children.toArray(
           certificateList.map((certificate) => (
             <Item onClick={() => handleClickItem(certificate)}>
-              <ItemImg src={certificate.thumb} alt={certificate.title} />
+              <ItemImg draggable={false} src={certificate.thumb} alt={certificate.title} />
               <ItemTitle>
                 {certificate.title} ({certificate.class})
               </ItemTitle>
@@ -36,7 +36,7 @@ function Certificate() {
       {isOpenPopup && selectedCertificate && (
         <Popup onClosePopup={handleClosePopup} hasCloseBtn>
           <ImageWrapper>
-            <img src={selectedCertificate.src} alt={selectedCertificate.title} />
+            <img draggable={false} src={selectedCertificate.src} alt={selectedCertificate.title} />
           </ImageWrapper>
         </Popup>
       )}

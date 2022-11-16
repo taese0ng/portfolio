@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 
 function Finder() {
   const localStorageWidth = localStorage.getItem('finder_sidebar_width');
-  const finderWidth = localStorageWidth ? JSON.parse(localStorageWidth) : 200;
+  const finderSideBarWidth = localStorageWidth ? JSON.parse(localStorageWidth) : 200;
   const containerRef = useRef<HTMLDivElement>(null);
-  const [sideBarWidth, setSideBarWidth] = useState(finderWidth);
+  const [sideBarWidth, setSideBarWidth] = useState(finderSideBarWidth);
   const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseDown = () => {
@@ -21,31 +21,27 @@ function Finder() {
   const handleMouseMove = (e: MouseEvent) => {
     if (isClicked && containerRef.current) {
       const containerLeft = containerRef.current.getBoundingClientRect().left;
-      const sideBarWidth = e.pageX - containerLeft;
-      if (sideBarWidth <= 100) {
+      const tempSideBarWidth = e.pageX - containerLeft;
+
+      if (tempSideBarWidth <= 100) {
         setSideBarWidth(100);
-      } else if (sideBarWidth >= 450) {
+      } else if (tempSideBarWidth >= 450) {
         setSideBarWidth(450);
       } else {
-        setSideBarWidth(sideBarWidth);
+        setSideBarWidth(tempSideBarWidth);
       }
     }
   };
 
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [isClicked]);
-
-  useEffect(() => {
-    window.addEventListener('mouseup', handleMouseUp);
-    return () => {
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [sideBarWidth]);
+  }, [isClicked]);
 
   return (
     <Container ref={containerRef}>

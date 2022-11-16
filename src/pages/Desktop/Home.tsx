@@ -54,7 +54,7 @@ function Home() {
     <Container>
       <>
         <Header itemList={items} onOpenModal={handleOpenModal} onUpperModal={handleUpperModal} />
-        <BackgroundImg src={bgImg.src} alt="background" draggable="false" />
+        <BackgroundImg src={bgImg.src} alt="background" draggable={false} />
 
         {Children.toArray(
           items.map(

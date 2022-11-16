@@ -10,7 +10,7 @@ function Skill() {
         {Children.toArray(
           skillList.map((skill) => (
             <Item>
-              <ItemImg src={skill.src} alt={skill.title} />
+              <ItemImg draggable={false} src={skill.src} alt={skill.title} />
               <ItemTitle>{skill.title}</ItemTitle>
             </Item>
           )),

@@ -34,7 +34,7 @@ function Dock({ itemList, onOpenModal, onUpperModal }: Props) {
           <MenuItemTitle isHover={safariIsHover}>safari</MenuItemTitle>
 
           <MenuItemIcon className="bounce" onClick={handleClickSafari}>
-            <img src={safariIcon} alt="safari" />
+            <img draggable={false} src={safariIcon} alt="safari" />
           </MenuItemIcon>
         </MenuItemWrapper>
 

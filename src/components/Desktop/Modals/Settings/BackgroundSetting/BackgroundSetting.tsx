@@ -26,7 +26,12 @@ function BackgroundSetting() {
           {Children.toArray(
             bgImgs.map((img) => (
               <Item onClick={() => handleSetImg(img)}>
-                <ItemImg selected={bgImg.title === img.title} src={img.thumb} alt="" />
+                <ItemImg
+                  draggable={false}
+                  selected={bgImg.title === img.title}
+                  src={img.thumb}
+                  alt=""
+                />
                 <ItemTitle>{img.title}</ItemTitle>
               </Item>
             )),

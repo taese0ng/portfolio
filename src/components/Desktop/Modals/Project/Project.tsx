@@ -11,13 +11,13 @@ const githubIcon = process.env.PUBLIC_URL + 'assets/images/icons/githubBtn.png';
 
 function Project() {
   const localStorageWidth = localStorage.getItem('project_sidebar_width');
-  const projectWidth = localStorageWidth ? JSON.parse(localStorageWidth) : 200;
+  const projectSideBarWidth = localStorageWidth ? JSON.parse(localStorageWidth) : 200;
   const containerRef = useRef<HTMLDivElement>(null);
   const cardListRef = useRef<HTMLUListElement>(null);
   const bodyWrapperRef = useRef<HTMLDivElement>(null);
   const [isClicked, setIsClicked] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectType>(projectList[0]);
-  const [sideBarWidth, setSideBarWidth] = useState(projectWidth);
+  const [sideBarWidth, setSideBarWidth] = useState(projectSideBarWidth);
 
   const handleMouseDown = () => {
     setIsClicked(true);
@@ -31,12 +31,12 @@ function Project() {
   const handleMouseMove = (e: MouseEvent) => {
     if (isClicked && containerRef.current && bodyWrapperRef.current) {
       const containerLeft = containerRef.current.getBoundingClientRect().left;
-      const sideBarWidth = e.pageX - containerLeft;
+      const tempSideBarWidth = e.pageX - containerLeft;
 
-      if (sideBarWidth <= 100) {
+      if (tempSideBarWidth <= 100) {
         setSideBarWidth(100);
-      } else if (sideBarWidth < bodyWrapperRef.current.clientWidth / 2) {
-        setSideBarWidth(sideBarWidth);
+      } else if (tempSideBarWidth < bodyWrapperRef.current.clientWidth / 2) {
+        setSideBarWidth(tempSideBarWidth);
       }
     }
   };
@@ -67,19 +67,13 @@ function Project() {
 
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [isClicked]);
-
-  useEffect(() => {
     window.addEventListener('mouseup', handleMouseUp);
 
     return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [sideBarWidth]);
+  }, [isClicked]);
 
   return (
     <Container ref={containerRef}>
@@ -111,7 +105,7 @@ function Project() {
             <li>
               <Card>
                 <CardWrapper isRow>
-                  <CardWrapperIcon src={selectedProject.icon} alt="projectIcon" />
+                  <CardWrapperIcon draggable={false} src={selectedProject.icon} alt="projectIcon" />
                   <div>
                     <CardWrapperTitle>
                       {selectedProject.title}
@@ -119,7 +113,7 @@ function Project() {
                     </CardWrapperTitle>
 
                     <CardWrapperDate>
-                      <img src={clockIcon} alt="clock" />
+                      <img draggable={false} src={clockIcon} alt="clock" />
                       {getDate(selectedProject)}
                     </CardWrapperDate>
                   </div>
@@ -127,7 +121,7 @@ function Project() {
                   <CardWrapperLinks>
                     {selectedProject.githubUrl && (
                       <CardWrapperLink onClick={() => handleClickUrl(selectedProject.githubUrl)}>
-                        <img src={githubIcon} alt="githubBtn" />
+                        <img draggable={false} src={githubIcon} alt="githubBtn" />
                       </CardWrapperLink>
                     )}
                     {selectedProject.url && (
@@ -185,7 +179,7 @@ function Project() {
                     {Children.toArray(
                       selectedProject.imgs.map((img) => (
                         <li>
-                          <img src={img} alt={img} />
+                          <img draggable={false} src={img} alt={img} />
                         </li>
                       )),
                     )}
