@@ -70,6 +70,7 @@ const Container = styled.div<{ isApp: boolean }>`
   ${({ isApp }) =>
     isApp &&
     css`
+      height: calc(100vh - 40px);
       background-color: var(--gray-30);
     `}
 `;
@@ -82,7 +83,7 @@ const Wrapper = styled.div<{ isApp: boolean }>`
   ${({ isApp }) =>
     isApp &&
     css`
-      height: calc(100% - 40px);
+      height: calc(100vh - 40px);
     `}
 `;
 

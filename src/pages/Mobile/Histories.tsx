@@ -43,7 +43,7 @@ function Histories() {
 
   return (
     <Layout title="히스토리">
-      <ul>
+      <HistoryList>
         {Children.toArray(
           years.map((year) => (
             <ItemWrapper>
@@ -51,7 +51,7 @@ function Histories() {
                 <YearIcon clicked={Boolean(openedList.find((list) => list === year))}></YearIcon>
                 <span>{year} 년</span>
               </Year>
-              <HistoryList opened={Boolean(openedList.find((list) => list === year))}>
+              <HistoryItemList opened={Boolean(openedList.find((list) => list === year))}>
                 {Children.toArray(
                   getHistoryContents(year).map((history) => (
                     <li>
@@ -66,16 +66,20 @@ function Histories() {
                     </li>
                   )),
                 )}
-              </HistoryList>
+              </HistoryItemList>
             </ItemWrapper>
           )),
         )}
-      </ul>
+      </HistoryList>
     </Layout>
   );
 }
 
 export default Histories;
+
+const HistoryList = styled.ul`
+  height: 100%;
+`;
 
 const ItemWrapper = styled.li`
   margin: 10px;
@@ -101,7 +105,7 @@ const YearIcon = styled.div<{ clicked: boolean }>`
     `}
 `;
 
-const HistoryList = styled.ul<{ opened: boolean }>`
+const HistoryItemList = styled.ul<{ opened: boolean }>`
   transform: scaleY(1);
   overflow: hidden;
   max-height: 0;
