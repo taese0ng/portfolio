@@ -3,7 +3,7 @@ import { DockItemType } from '@interfaces/dock';
 
 const { Info, Award, Certificate, Skill, History, Project, Settings } = Modals;
 
-const iconUrl = process.env.PUBLIC_URL + 'assets/images/icons';
+const iconUrl = process.env.PUBLIC_URL + '/assets/images/icons';
 
 export const itemIDs = {
   myInfo: 'myInfo',

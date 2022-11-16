@@ -6,7 +6,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { History as HistoryType } from '@interfaces/history';
 
-const clockIcon = process.env.PUBLIC_URL + 'assets/images/icons/clock.png';
+const clockIcon = process.env.PUBLIC_URL + '/assets/images/icons/clock.png';
 const years = historyList
   .filter(
     (history, idx, originList) =>

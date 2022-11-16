@@ -1,6 +1,6 @@
 import { Skill } from '@interfaces/skill';
 
-const skillUrl = process.env.PUBLIC_URL + 'assets/images/skills';
+const skillUrl = process.env.PUBLIC_URL + '/assets/images/skills';
 
 export const skillList: Array<Skill> = [
   {

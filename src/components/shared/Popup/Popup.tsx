@@ -2,7 +2,7 @@ import { MouseEvent, ReactNode, useEffect } from 'react';
 
 import styled from '@emotion/styled';
 
-const closeIcon = process.env.PUBLIC_URL + 'assets/images/icons/closeIcon.png';
+const closeIcon = process.env.PUBLIC_URL + '/assets/images/icons/closeIcon.png';
 
 interface Props {
   onClosePopup: (e?: MouseEvent) => void;

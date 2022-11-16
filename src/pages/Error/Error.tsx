@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const infoIcon = process.env.PUBLIC_URL + 'assets/images/icons/info.png';
+const infoIcon = process.env.PUBLIC_URL + '/assets/images/icons/info.png';
 
 function Error() {
   return (

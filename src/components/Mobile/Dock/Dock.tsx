@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { DockItemType } from '@interfaces/dock';
 
-const safariIcon = process.env.PUBLIC_URL + 'assets/images/icons/safari.png';
+const safariIcon = process.env.PUBLIC_URL + '/assets/images/icons/safari.png';
 
 interface Props {
   dockItems: Array<DockItemType>;

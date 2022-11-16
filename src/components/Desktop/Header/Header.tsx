@@ -8,7 +8,8 @@ import { DockItemType } from '~/interfaces/dock';
 import Calendar from './Calendar';
 import Time from './Time';
 
-const logoImg = process.env.PUBLIC_URL + 'assets/images/icons/logo.png';
+const logoImg = process.env.PUBLIC_URL + '/assets/images/icons/logo.png';
+
 interface Props {
   itemList: Array<DockItemType>;
   onOpenModal: (id: string, nowOpen: boolean) => void;

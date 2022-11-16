@@ -6,8 +6,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Project as ProjectType } from '@interfaces/project';
 
-const clockIcon = process.env.PUBLIC_URL + 'assets/images/icons/clock.png';
-const githubIcon = process.env.PUBLIC_URL + 'assets/images/icons/githubBtn.png';
+const clockIcon = process.env.PUBLIC_URL + '/assets/images/icons/clock.png';
+const githubIcon = process.env.PUBLIC_URL + '/assets/images/icons/githubBtn.png';
 
 function Project() {
   const localStorageWidth = localStorage.getItem('project_sidebar_width');

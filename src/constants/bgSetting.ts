@@ -1,7 +1,7 @@
 import { BgImg } from '@interfaces/bgSetting';
 
-const bgUrl = process.env.PUBLIC_URL + 'assets/images/backgrounds';
-const thumbUrl = process.env.PUBLIC_URL + 'assets/images/thumbnails/backgrounds';
+const bgUrl = process.env.PUBLIC_URL + '/assets/images/backgrounds';
+const thumbUrl = process.env.PUBLIC_URL + '/assets/images/thumbnails/backgrounds';
 
 export const bgImgs: Array<BgImg> = [
   {

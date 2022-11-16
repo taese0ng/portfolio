@@ -1,6 +1,6 @@
 import { Content } from '@interfaces/info';
 
-const iconUrl = process.env.PUBLIC_URL + 'assets/images/icons';
+const iconUrl = process.env.PUBLIC_URL + '/assets/images/icons';
 
 export const profileImg = `${iconUrl}/profileImg.jpeg`;
 export const contents: Content[] = [

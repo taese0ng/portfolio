@@ -1,7 +1,7 @@
 import { Award } from '@interfaces/awards';
 
-const awardUrl = process.env.PUBLIC_URL + 'assets/images/awards';
-const thumbUrl = process.env.PUBLIC_URL + 'assets/images/thumbnails/awards';
+const awardUrl = process.env.PUBLIC_URL + '/assets/images/awards';
+const thumbUrl = process.env.PUBLIC_URL + '/assets/images/thumbnails/awards';
 
 export const awardList: Array<Award> = [
   {

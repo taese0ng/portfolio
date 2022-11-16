@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
-const bgUrl = process.env.PUBLIC_URL + 'assets/images/backgrounds';
-const thumbUrl = process.env.PUBLIC_URL + 'assets/images/thumbnails/backgrounds';
+const bgUrl = process.env.PUBLIC_URL + '/assets/images/backgrounds';
+const thumbUrl = process.env.PUBLIC_URL + '/assets/images/thumbnails/backgrounds';
 
 export const bgImgAtom = atom({
   key: 'bgImg',

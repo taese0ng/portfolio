@@ -1,6 +1,6 @@
 import { Project } from '@interfaces/project';
 
-const projectsUrl = process.env.PUBLIC_URL + 'assets/images/projects';
+const projectsUrl = process.env.PUBLIC_URL + '/assets/images/projects';
 const coronaCatchUrl = `${projectsUrl}/coronaCatch`;
 const KUMOCraftUrl = `${projectsUrl}/KUMOCraft`;
 const MAPMOUrl = `${projectsUrl}/MAPMO`;

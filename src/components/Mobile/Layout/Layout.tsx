@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import Header from './Header';
 
 const homePath = '/';
-const backBtnIcon = process.env.PUBLIC_URL + 'assets/images/icons/backBtn.png';
+const backBtnIcon = process.env.PUBLIC_URL + '/assets/images/icons/backBtn.png';
 
 interface Props {
   title: string;
