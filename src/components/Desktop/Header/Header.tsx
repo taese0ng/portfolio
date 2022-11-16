@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
+import { Battery } from '@components/shared';
 import { itemIDs } from '@constants/dock';
 import styled from '@emotion/styled';
 import { DockItemType } from '~/interfaces/dock';
 
-import Battery from './Battery';
 import Calendar from './Calendar';
 import Time from './Time';
 

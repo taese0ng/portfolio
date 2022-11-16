@@ -7,12 +7,12 @@ const iconUrl = process.env.PUBLIC_URL + 'assets/images/icons';
 
 export const itemIDs = {
   myInfo: 'myInfo',
-  award: 'award',
-  certificate: 'certificate',
-  skill: 'skill',
+  awards: 'awards',
+  certificates: 'certificates',
+  skills: 'skills',
   finder: 'finder',
   settings: 'settings',
-  history: 'history',
+  histories: 'histories',
   projects: 'projects',
 };
 
@@ -27,7 +27,7 @@ export const itemList: Array<DockItemType> = [
     nowOpen: false,
   },
   {
-    id: itemIDs.award,
+    id: itemIDs.awards,
     title: '수상경력',
     isOpen: false,
     icon: `${iconUrl}/award.png`,
@@ -38,7 +38,7 @@ export const itemList: Array<DockItemType> = [
     nowOpen: false,
   },
   {
-    id: itemIDs.certificate,
+    id: itemIDs.certificates,
     title: '자격증',
     isOpen: false,
     icon: `${iconUrl}/certificate.png`,
@@ -49,7 +49,7 @@ export const itemList: Array<DockItemType> = [
     nowOpen: false,
   },
   {
-    id: itemIDs.skill,
+    id: itemIDs.skills,
     title: '기술스택',
     isOpen: false,
     icon: `${iconUrl}/skill.png`,
@@ -60,7 +60,7 @@ export const itemList: Array<DockItemType> = [
     nowOpen: false,
   },
   {
-    id: itemIDs.history,
+    id: itemIDs.histories,
     title: '히스토리',
     isOpen: false,
     icon: `${iconUrl}/history.png`,
