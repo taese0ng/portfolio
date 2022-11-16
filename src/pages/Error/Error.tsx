@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 
+const infoIcon = process.env.PUBLIC_URL + 'assets/images/icons/info.png';
+
 function Error() {
   return (
     <Container>
-      <Icon draggable={false} src="{infoIcon}" alt="info" />
+      <Icon draggable={false} src={infoIcon} alt="info" />
       <Title>
         잘못된 접근입니다.
         <br />
@@ -17,7 +19,7 @@ export default Error;
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
