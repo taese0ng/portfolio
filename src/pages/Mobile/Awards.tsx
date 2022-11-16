@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 import { Award } from '@interfaces/awards';
 
 const param = 'id';
+const path = '/awards';
 
 function Awards() {
   const navigate = useNavigate();
@@ -17,11 +18,11 @@ function Awards() {
   const [selectedAward, setSelectedAward] = useState<Award | null>(null);
 
   const handleClickAward = (award: Award) => {
-    navigate(`/awards?${param}=${award.id}`, { replace: true });
+    navigate(`${path}?${param}=${award.id}`, { replace: true });
   };
 
   const handleClosePopup = () => {
-    navigate('/awards', { replace: true });
+    navigate(path, { replace: true });
   };
 
   useEffect(() => {
