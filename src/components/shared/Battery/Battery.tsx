@@ -96,5 +96,5 @@ const BatteryInner = styled.div<{ blackMode: boolean; batteryPercent: number }>`
   width: ${({ batteryPercent }) => batteryPercent}%;
   height: 100%;
   border-radius: 2px;
-  background-color: ${({ blackMode }) => (blackMode ? 'var(--black' : 'var(--white)')};
+  background-color: ${({ blackMode }) => (blackMode ? 'var(--black)' : 'var(--white)')};
 `;

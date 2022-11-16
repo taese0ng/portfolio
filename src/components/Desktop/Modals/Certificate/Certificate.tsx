@@ -1,6 +1,6 @@
 import { Children, useState } from 'react';
 
-import { Popup } from '@components/Desktop';
+import { Popup } from '@components/shared';
 import { certificateList } from '@constants/certificates';
 import styled from '@emotion/styled';
 import { Certificate as CertificateType } from '@interfaces/certificates';

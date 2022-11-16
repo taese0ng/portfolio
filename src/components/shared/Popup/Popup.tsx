@@ -6,7 +6,7 @@ const closeIcon = process.env.PUBLIC_URL + 'assets/images/icons/closeIcon.png';
 
 interface Props {
   onClosePopup: (e?: MouseEvent) => void;
-  hasCloseBtn: boolean;
+  hasCloseBtn?: boolean;
   children: ReactNode;
 }
 

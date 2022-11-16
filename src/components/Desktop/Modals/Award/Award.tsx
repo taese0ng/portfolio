@@ -1,6 +1,6 @@
 import { Children, useState } from 'react';
 
-import { Popup } from '@components/Desktop';
+import { Popup } from '@components/shared';
 import { awardList } from '@constants/awards';
 import styled from '@emotion/styled';
 import { Award as AwardType } from '@interfaces/awards';
