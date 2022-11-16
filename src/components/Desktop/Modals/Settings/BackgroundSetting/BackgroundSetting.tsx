@@ -16,12 +16,12 @@ function BackgroundSetting() {
   };
 
   return (
-    <div className="container">
+    <div>
       <Header>
         <Title>배경 설정</Title>
       </Header>
 
-      <div className="body">
+      <div>
         <ItemsWrapper>
           {Children.toArray(
             bgImgs.map((img) => (
