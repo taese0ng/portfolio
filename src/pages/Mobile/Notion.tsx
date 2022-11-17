@@ -8,13 +8,27 @@ import Axios from '~/apis';
 function Notion() {
   const [blockMap, setBlockMap] = useState<any>({});
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const pageId = '0b01f2b4e3884508b588b09ec2ed3554';
     Axios.get(`https://notion-api.splitbee.io/v1/page/${pageId}`)
-      .then(({ data }) => setBlockMap(data))
-      .catch(() => setIsError(true));
+      .then(({ data }) => {
+        setBlockMap(data);
+      })
+      .catch(() => setIsError(true))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) {
+    return (
+      <Layout title="notion">
+        <Loading>Loading...</Loading>
+      </Layout>
+    );
+  }
 
   return (
     <Layout title="notion">
@@ -31,6 +45,11 @@ function Notion() {
 }
 
 export default Notion;
+
+const Loading = styled.div`
+  font-size: 1.3em;
+  padding: 20px;
+`;
 
 const Error = styled.div`
   height: 80%;
