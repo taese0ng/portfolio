@@ -3,6 +3,7 @@ import Certificates from './Certificates';
 import Histories from './Histories';
 import Home from './Home';
 import MyInfo from './MyInfo';
+import Notion from './Notion';
 import ProjectDetail from './ProjectDetail';
 import Projects from './Projects';
 import Settings from './Settings';
@@ -18,4 +19,5 @@ export default {
   Projects,
   ProjectDetail,
   Skills,
+  Notion,
 };

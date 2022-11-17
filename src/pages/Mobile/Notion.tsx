@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NotionRenderer } from 'react-notion';
 
+import { Layout } from '@components/Mobile';
 import styled from '@emotion/styled';
 import Axios from '~/apis';
 
@@ -16,7 +17,7 @@ function Notion() {
   }, []);
 
   return (
-    <Container>
+    <Layout title="notion">
       {isError ? (
         <Error>
           <Korean>AdBlocker와 같은 프로그램을 꺼주세요</Korean>
@@ -25,20 +26,14 @@ function Notion() {
       ) : (
         Object.keys(blockMap).length && <NotionRenderer blockMap={blockMap} fullPage />
       )}
-    </Container>
+    </Layout>
   );
 }
 
 export default Notion;
 
-const Container = styled.div`
-  height: 100%;
-  overflow: auto;
-  background: var(--white);
-`;
-
 const Error = styled.div`
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,11 +42,11 @@ const Error = styled.div`
 `;
 
 const Korean = styled.span`
-  font-size: 2em;
+  font-size: 1.3em;
   font-weight: bold;
 `;
 
 const English = styled.span`
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: 600;
 `;

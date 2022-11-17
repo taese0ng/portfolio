@@ -42,6 +42,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin: 20px 0;
+  grid-row-gap: 25px;
 `;
 
 const ItemContainer = styled.div`

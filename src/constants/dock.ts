@@ -14,7 +14,7 @@ export const itemIDs = {
   settings: 'settings',
   histories: 'histories',
   projects: 'projects',
-  notion: 'notion,',
+  notion: 'notion',
 };
 
 export const itemList: Array<DockItemType> = [

@@ -5,8 +5,18 @@ import { DesktopHome, Error, MobilePages } from '~/pages';
 import { isMobileAtom } from '~/store';
 import { useRecoilState } from 'recoil';
 
-const { Home, Awards, Histories, MyInfo, Settings, Certificates, Projects, ProjectDetail, Skills } =
-  MobilePages;
+const {
+  Home,
+  Awards,
+  Histories,
+  MyInfo,
+  Settings,
+  Certificates,
+  Projects,
+  ProjectDetail,
+  Notion,
+  Skills,
+} = MobilePages;
 const stdWidth = 900;
 
 function AppRouter() {
@@ -50,6 +60,7 @@ function AppRouter() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/skills" element={<Skills />} />
+            <Route path="/notion" element={<Notion />} />
 
             <Route path="*" element={<Error />} />
           </>
