@@ -6,7 +6,7 @@ export const certificateList: Array<Certificate> = [
   {
     id: 'OPIC Japanese',
     title: 'OPIC Japanese',
-    src: `${certificateUrl}/OPIC_Japanese.png`,
+    src: `${certificateUrl}/OPIC_Japanese.webp`,
     class: 'IH',
   },
 ];

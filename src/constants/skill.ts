@@ -5,26 +5,26 @@ const skillUrl = process.env.PUBLIC_URL + '/assets/images/skills';
 export const skillList: Array<Skill> = [
   {
     title: 'html',
-    src: `${skillUrl}/html.png`,
+    src: `${skillUrl}/html.webp`,
   },
   {
     title: 'css',
-    src: `${skillUrl}/css.png`,
+    src: `${skillUrl}/css.webp`,
   },
   {
     title: 'javascript',
-    src: `${skillUrl}/javascript.png`,
+    src: `${skillUrl}/javascript.webp`,
   },
   {
     title: 'typescript',
-    src: `${skillUrl}/typescript.png`,
+    src: `${skillUrl}/typescript.webp`,
   },
   {
     title: 'react',
-    src: `${skillUrl}/react.png`,
+    src: `${skillUrl}/react.webp`,
   },
   {
     title: 'svelte',
-    src: `${skillUrl}/svelte.png`,
+    src: `${skillUrl}/svelte.webp`,
   },
 ];

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { DockItemType } from '~/interfaces/dock';
 
 import MenuItem from './MenuItem';
-const safariIcon = process.env.PUBLIC_URL + '/assets/images/icons/safari.png';
+const safariIcon = process.env.PUBLIC_URL + '/assets/images/icons/safari.webp';
 
 interface Props {
   itemList: Array<DockItemType>;

@@ -8,7 +8,7 @@ import { DockItemType } from '~/interfaces/dock';
 import Calendar from './Calendar';
 import Time from './Time';
 
-const logoImg = process.env.PUBLIC_URL + '/assets/images/icons/logo.png';
+const logoImg = process.env.PUBLIC_URL + '/assets/images/icons/logo.webp';
 
 interface Props {
   itemList: Array<DockItemType>;
