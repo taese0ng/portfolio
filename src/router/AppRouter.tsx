@@ -31,7 +31,7 @@ function AppRouter() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio">
       <Routes>
         {!isMobile ? (
           <>
