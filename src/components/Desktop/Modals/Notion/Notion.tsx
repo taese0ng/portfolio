@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import Axios from '~/apis';
 
 function Notion() {
-  const [blockMap, setBlockMap] = useState<any>({});
+  const [blockMap, setBlockMap] = useState({});
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
