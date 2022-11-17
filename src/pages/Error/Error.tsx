@@ -9,7 +9,7 @@ function Error() {
       <Title>
         잘못된 접근입니다.
         <br />
-        <a href="/">Home</a>으로 이동해주세요.
+        <a href="/portfolio">Home</a>으로 이동해주세요.
       </Title>
     </Container>
   );
