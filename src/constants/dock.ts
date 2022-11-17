@@ -1,7 +1,7 @@
 import { Modals } from '@components/Desktop';
 import { DockItemType } from '@interfaces/dock';
 
-const { Info, Award, Certificate, Skill, History, Project, Settings } = Modals;
+const { Info, Award, Certificate, Skill, History, Project, Notion, Settings } = Modals;
 
 const iconUrl = process.env.PUBLIC_URL + '/assets/images/icons';
 
@@ -14,6 +14,7 @@ export const itemIDs = {
   settings: 'settings',
   histories: 'histories',
   projects: 'projects',
+  notion: 'notion,',
 };
 
 export const itemList: Array<DockItemType> = [
@@ -107,5 +108,17 @@ export const itemList: Array<DockItemType> = [
     width: 700,
     height: 400,
     nowOpen: false,
+  },
+  {
+    id: itemIDs.notion,
+    title: 'notion',
+    isOpen: false,
+    icon: `${iconUrl}/notion.webp`,
+    component: Notion,
+    zIndex: 0,
+    width: 800,
+    height: 500,
+    nowOpen: false,
+    resizeable: true,
   },
 ];
