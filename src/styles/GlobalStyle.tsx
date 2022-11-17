@@ -1,5 +1,7 @@
 import { css, Global } from '@emotion/react';
 
+const fontPath = process.env.PUBLIC_URL + '/fonts/Happiness-Sans-Regular.ttf';
+
 function GlobalStyle() {
   return <Global styles={style} />;
 }
@@ -7,7 +9,13 @@ function GlobalStyle() {
 export default GlobalStyle;
 
 const style = css`
+  @font-face {
+    font-family: 'HappinessSansRegular';
+    src: url(${fontPath});
+  }
+
   body {
+    font-family: 'HappinessSansRegular';
     margin: 0;
     padding: 0;
     overflow: hidden;
