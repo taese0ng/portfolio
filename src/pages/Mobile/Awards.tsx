@@ -102,5 +102,6 @@ const ImageWrapper = styled.div`
 `;
 
 const Image = styled.img`
+  border-radius: 15px;
   width: 100%;
 `;

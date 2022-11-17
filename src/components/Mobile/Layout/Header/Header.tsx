@@ -21,7 +21,7 @@ function Header({ blackMode = false }: Props) {
 export default Header;
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   background-color: var(--white-40per);

@@ -38,7 +38,7 @@ function Popup({ onClosePopup, hasCloseBtn = false, children }: Props) {
 
   return (
     <Container onClick={() => !hasCloseBtn && handleClosePopup()}>
-      <SlotWrapper onClick={handleClickSlot}>
+      <Wrapper onClick={handleClickSlot}>
         {hasCloseBtn && (
           <CloseBtn onClick={handleClosePopup}>
             <img draggable={false} src={closeIcon} alt="closeBtn" />
@@ -46,7 +46,7 @@ function Popup({ onClosePopup, hasCloseBtn = false, children }: Props) {
         )}
 
         {children}
-      </SlotWrapper>
+      </Wrapper>
     </Container>
   );
 }
@@ -67,7 +67,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const SlotWrapper = styled.div`
+const Wrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;

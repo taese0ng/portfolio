@@ -64,13 +64,13 @@ export default Layout;
 const Container = styled.div<{ isApp: boolean }>`
   margin: 0;
   padding: 30px 0 0 0;
-  height: calc(100vh - 30px);
+  height: calc(100% - 70px);
   width: 100vw;
 
   ${({ isApp }) =>
     isApp &&
     css`
-      height: calc(100vh - 40px);
+      height: calc(100% - 70px);
       background-color: var(--gray-30);
     `}
 `;
@@ -83,15 +83,21 @@ const Wrapper = styled.div<{ isApp: boolean }>`
   ${({ isApp }) =>
     isApp &&
     css`
-      height: calc(100vh - 40px);
-    `}
+      position: absolute;
+      top: 70px;
+      height: calc(100% - 70px);
+    `};
 `;
 
 const AppHeader = styled.div`
+  position: fixed;
+  top: 30px;
+  background-color: var(--gray-30);
   width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
+  z-index: 1;
 `;
 
 const BackButton = styled.div`

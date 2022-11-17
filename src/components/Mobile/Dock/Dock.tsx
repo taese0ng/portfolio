@@ -47,7 +47,7 @@ export default Dock;
 const Container = styled.div`
   position: absolute;
   bottom: 0;
-  background: var(--white-70per);
+  background-color: var(--white-70per);
   backdrop-filter: blur(20px);
   border: 1px solid var(--white-40per);
   padding: 13px 10px;
