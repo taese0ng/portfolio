@@ -8,6 +8,7 @@ import { bgImgAtom } from '~/store';
 import { useRecoilState } from 'recoil';
 
 const settedBg = localStorage.getItem('background');
+const defaultBgUrl = process.env.PUBLIC_URL + '/assets/images/backgrounds';
 
 function Home() {
   const [bgImg, setBgImg] = useRecoilState(bgImgAtom);
@@ -47,7 +48,14 @@ function Home() {
   };
 
   useEffect(() => {
-    if (settedBg) setBgImg(JSON.parse(settedBg));
+    if (settedBg) {
+      setBgImg(JSON.parse(settedBg));
+    } else {
+      setBgImg({
+        src: `${defaultBgUrl}/background_monterey.webp`,
+        title: 'Monterey(Graphic)',
+      });
+    }
   }, []);
 
   return (

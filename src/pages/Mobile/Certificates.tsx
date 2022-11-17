@@ -49,7 +49,7 @@ function Certificates() {
                 <img
                   onClick={() => handleClickCertificate(certificate)}
                   className="certificates__item--img"
-                  src={certificate.thumb}
+                  src={certificate.src}
                   alt={certificate.title}
                 />
                 <Title>{certificate.title}</Title>

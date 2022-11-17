@@ -24,7 +24,7 @@ function Certificate() {
         {Children.toArray(
           certificateList.map((certificate) => (
             <Item onClick={() => handleClickItem(certificate)}>
-              <ItemImg draggable={false} src={certificate.thumb} alt={certificate.title} />
+              <ItemImg draggable={false} src={certificate.src} alt={certificate.title} />
               <ItemTitle>
                 {certificate.title} ({certificate.class})
               </ItemTitle>

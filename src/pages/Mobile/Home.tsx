@@ -7,6 +7,7 @@ import { DockItemType } from '@interfaces/dock';
 import { mobileBgImgAtom } from '~/store';
 import { useRecoilState } from 'recoil';
 
+const defaultBgUrl = process.env.PUBLIC_URL + '/assets/images/backgrounds';
 const localStorageBgImg = localStorage.getItem('mobileBackground');
 const bg = localStorageBgImg ? JSON.parse(localStorageBgImg) : null;
 const dockItemIds = [itemIDs.myInfo, itemIDs.histories, itemIDs.settings];
@@ -28,6 +29,11 @@ function Home() {
   useLayoutEffect(() => {
     if (bg) {
       setMobileBgImg(bg);
+    } else {
+      setMobileBgImg({
+        src: `${defaultBgUrl}/background_ios16.webp`,
+        title: 'ios16',
+      });
     }
   }, []);
 

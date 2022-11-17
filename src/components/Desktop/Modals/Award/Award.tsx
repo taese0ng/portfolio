@@ -24,7 +24,7 @@ function Award() {
         {Children.toArray(
           awardList.map((award) => (
             <Item onClick={() => handleClickItem(award)}>
-              <ItemImg draggable={false} src={award.thumb} alt={award.title} />
+              <ItemImg draggable={false} src={award.src} alt={award.title} />
               <ItemTitle>
                 {award.title} ({award.class})
               </ItemTitle>

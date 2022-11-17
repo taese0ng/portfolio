@@ -48,7 +48,7 @@ function Awards() {
                 <Image
                   onClick={() => handleClickAward(award)}
                   className="awards__item--img"
-                  src={award.thumb}
+                  src={award.src}
                   alt={award.title}
                 />
                 <Title>{award.title}</Title>
