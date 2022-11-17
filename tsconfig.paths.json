@@ -12,7 +12,8 @@
       "@constants/*": ["src/constants/*"],
       "@styles/*": ["src/styles/*"],
       "@store/*": ["src/store/*"],
-      "@firebase/*": ["src/firebase/*"]
+      "@firebase/*": ["src/firebase/*"],
+      "@apis/*": ["src/apis/*"]
     }
   }
 }

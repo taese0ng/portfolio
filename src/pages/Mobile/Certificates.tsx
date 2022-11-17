@@ -104,6 +104,7 @@ const Title = styled.div`
 const ImageWrapper = styled.div`
   width: 95%;
   img {
+    border-radius: 15px;
     width: 100%;
   }
 `;

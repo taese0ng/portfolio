@@ -8,8 +8,6 @@ import { mobileBgImgAtom } from '~/store';
 import { useRecoilState } from 'recoil';
 
 const defaultBgUrl = process.env.PUBLIC_URL + '/assets/images/backgrounds';
-const localStorageBgImg = localStorage.getItem('mobileBackground');
-const bg = localStorageBgImg ? JSON.parse(localStorageBgImg) : null;
 const dockItemIds = [itemIDs.myInfo, itemIDs.histories, itemIDs.settings];
 const dockItems: DockItemType[] = [];
 const backgroundItems: DockItemType[] = [];
@@ -27,6 +25,9 @@ function Home() {
   const [mobileBgImg, setMobileBgImg] = useRecoilState(mobileBgImgAtom);
 
   useLayoutEffect(() => {
+    const localStorageBgImg = localStorage.getItem('mobileBackground');
+    const bg = localStorageBgImg ? JSON.parse(localStorageBgImg) : null;
+
     if (bg) {
       setMobileBgImg(bg);
     } else {

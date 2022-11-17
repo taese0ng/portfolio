@@ -55,7 +55,8 @@ const Item = styled.li`
 `;
 
 const ItemThumb = styled.img<{ selected: boolean }>`
-  border-radius: 10px;
+  border-radius: 15px;
+  -webkit-border-radius: 2rem;
   height: 90%;
   width: 100%;
   object-fit: cover;
@@ -63,8 +64,9 @@ const ItemThumb = styled.img<{ selected: boolean }>`
   ${({ selected }) =>
     selected &&
     css`
-      outline: 5px solid var(--blue-20);
-      outline-offset: -5px;
+      border: 5px solid var(--blue-20);
+      width: calc(100% - 10px);
+      height: calc(90% - 10px);
     `}
 `;
 

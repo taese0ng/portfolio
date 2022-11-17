@@ -106,14 +106,14 @@ const YearIcon = styled.div<{ clicked: boolean }>`
 `;
 
 const HistoryItemList = styled.ul<{ opened: boolean }>`
-  transform: scaleY(1);
-  overflow: hidden;
+  overflow: hidden !important;
   max-height: 0;
   transition: max-height 1s cubic-bezier(0.1, 1, 0.1, 1);
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin: 10px;
+  z-index: 1000;
 
   ${({ opened }) =>
     opened &&
