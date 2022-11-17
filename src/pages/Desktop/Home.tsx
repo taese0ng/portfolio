@@ -7,6 +7,8 @@ import { Dock, Header, Modals } from '~/components/Desktop';
 import { bgImgAtom } from '~/store';
 import { useRecoilState } from 'recoil';
 
+const settedBg = localStorage.getItem('background');
+
 function Home() {
   const [bgImg, setBgImg] = useRecoilState(bgImgAtom);
   const [items, setItems] = useState(itemList);
@@ -45,8 +47,6 @@ function Home() {
   };
 
   useEffect(() => {
-    const settedBg = localStorage.getItem('background');
-
     if (settedBg) setBgImg(JSON.parse(settedBg));
   }, []);
 

@@ -29,10 +29,10 @@ function BackgroundSetting() {
                 <ItemImg
                   draggable={false}
                   selected={bgImg.title === img.title}
-                  src={img.thumb}
+                  src={img.src}
                   alt=""
                 />
-                <ItemTitle>{img.title}</ItemTitle>
+                <ItemTitle selected={bgImg.title === img.title}>{img.title}</ItemTitle>
               </Item>
             )),
           )}
@@ -54,15 +54,15 @@ const Title = styled.div`
 `;
 
 const ItemsWrapper = styled.ul`
-  display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 0 10px;
 `;
 
 const Item = styled.li`
   display: flex;
   flex-direction: column;
-  width: 150px;
   margin-bottom: 15px;
   align-items: center;
   cursor: pointer;
@@ -71,20 +71,20 @@ const Item = styled.li`
 const ItemImg = styled.img<{ selected: boolean }>`
   border-radius: 6px;
   width: 100%;
-  height: 90px;
+  height: 130px;
   object-fit: cover;
 
   ${({ selected }) =>
     selected &&
     css`
       width: calc(100% - 8px);
-      height: calc(90px - 8px);
+      height: calc(130px - 8px);
       border: 4px solid var(--blue-10);
     `}
 `;
 
-const ItemTitle = styled.div`
+const ItemTitle = styled.div<{ selected: boolean }>`
   margin-top: 5px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
 `;

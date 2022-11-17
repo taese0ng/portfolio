@@ -30,7 +30,7 @@ function Settings() {
         {Children.toArray(
           mobileImgs.map((bg) => (
             <Item onClick={() => handleSelectBg(bg)}>
-              <ItemThumb selected={mobileBgImg.title === bg.title} src={bg.thumb} alt={bg.title} />
+              <ItemThumb selected={mobileBgImg.title === bg.title} src={bg.src} alt={bg.title} />
               <ItemTitle selected={mobileBgImg.title === bg.title}>{bg.title}</ItemTitle>
             </Item>
           )),

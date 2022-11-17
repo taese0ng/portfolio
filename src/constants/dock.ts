@@ -104,6 +104,8 @@ export const itemList: Array<DockItemType> = [
     icon: `${iconUrl}/settings.png`,
     component: Settings,
     zIndex: 0,
+    width: 700,
+    height: 400,
     nowOpen: false,
   },
 ];
