@@ -59,7 +59,6 @@ const ItemTitle = styled.span`
 `;
 
 const Item = styled.div`
-  background-color: var(--gray-60);
   border-radius: 20px;
   width: 70px;
   height: 70px;

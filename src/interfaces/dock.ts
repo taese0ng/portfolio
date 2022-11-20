@@ -12,4 +12,7 @@ export interface DockItemType {
   isAbsoluteHeader?: boolean;
   nowOpen: boolean;
   resizeable?: boolean;
+  position?: { x: number; y: number };
+  isFixed?: boolean;
+  isFull?: boolean;
 }

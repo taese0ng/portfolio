@@ -47,7 +47,7 @@ function BaseModal({ item, onCloseModal, onUpperModal, children }: Props) {
   };
 
   const onMouseMove = (e: MouseEvent) => {
-    if (containerRef.current) {
+    if (containerRef.current && !item.isFixed) {
       if (isClicked) {
         containerRef.current.style.left = `${e.pageX - shiftX}px`;
         containerRef.current.style.top = `${e.pageY - shiftY}px`;
@@ -194,7 +194,7 @@ function BaseModal({ item, onCloseModal, onUpperModal, children }: Props) {
     const itemLocationCoords = sessionStorage.getItem(`${item.id}LocationCoords`);
 
     if (containerRef.current) {
-      if (itemLocationCoords) {
+      if (itemLocationCoords && !item.isFixed) {
         resizeObj.current = JSON.parse(itemLocationCoords);
         containerRef.current.style.top = `${resizeObj.current.top}px`;
         containerRef.current.style.left = `${resizeObj.current.left}px`;
@@ -233,6 +233,8 @@ function BaseModal({ item, onCloseModal, onUpperModal, children }: Props) {
       width={item.width || 500}
       height={item.height || 300}
       zIndex={item.zIndex}
+      position={item?.position}
+      isFull={item?.isFull}
     >
       {item.resizeable && (
         <>
@@ -290,14 +292,35 @@ const Container = styled.div<{
   width: number;
   height: number;
   zIndex: number;
+  position?: { x: number; y: number };
+  isFull?: boolean;
 }>`
   position: absolute;
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
+  ${({ position, width }) =>
+    position
+      ? css`
+          left: ${position.x}px;
+          top: ${position.y}px;
+        `
+      : css`
+          left: calc(50% - ${width}px / 2);
+          top: calc(20%);
+        `}
+  ${({ isFull, width, height }) =>
+    isFull
+      ? css`
+          width: 100%;
+          height: calc(100% - 105px);
+          left: 0px;
+          top: 25px;
+        `
+      : css`
+          width: ${width}px;
+          height: ${height}px;
+        `}
   border-radius: 8px;
   overflow: hidden;
-  left: calc(50% - ${({ width }) => width}px / 2);
-  top: calc(20%);
+
   border: 1px solid var(--gray-50);
   z-index: ${({ zIndex }) => zIndex};
   visibility: ${({ isVisible }) => (isVisible ? 'hidden' : 'visible')};
