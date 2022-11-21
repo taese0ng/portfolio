@@ -59,12 +59,13 @@ const ItemTitle = styled.span`
 `;
 
 const Item = styled.div`
-  border-radius: 20px;
+  border-radius: 10px;
   width: 70px;
   height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   img {
     width: 100%;

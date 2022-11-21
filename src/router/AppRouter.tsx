@@ -16,6 +16,7 @@ const {
   ProjectDetail,
   Notion,
   Skills,
+  DinoGame,
 } = MobilePages;
 const stdWidth = 900;
 
@@ -61,6 +62,7 @@ function AppRouter() {
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/notion" element={<Notion />} />
+            <Route path="/dinogame" element={<DinoGame />} />
 
             <Route path="*" element={<Error />} />
           </>

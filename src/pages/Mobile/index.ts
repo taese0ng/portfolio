@@ -1,5 +1,6 @@
 import Awards from './Awards';
 import Certificates from './Certificates';
+import DinoGame from './DinoGame';
 import Histories from './Histories';
 import Home from './Home';
 import MyInfo from './MyInfo';
@@ -20,4 +21,5 @@ export default {
   ProjectDetail,
   Skills,
   Notion,
+  DinoGame,
 };

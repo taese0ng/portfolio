@@ -59,8 +59,7 @@ const Container = styled.div`
 `;
 
 const Item = styled.div`
-  background-color: var(--gray-60);
-  border-radius: 20px;
+  border-radius: 10px;
   width: 70px;
   height: 70px;
   display: flex;
