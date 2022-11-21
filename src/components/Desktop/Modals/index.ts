@@ -1,6 +1,7 @@
 import Award from './Award';
 import BaseModal from './BaseModal';
 import Certificate from './Certificate';
+import DinoGame from './DinoGame';
 import Finder from './Finder';
 import History from './History';
 import Info from './Info';
@@ -20,4 +21,5 @@ export default {
   Project,
   Settings,
   Skill,
+  DinoGame,
 };

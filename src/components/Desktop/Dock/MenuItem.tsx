@@ -62,7 +62,7 @@ const MenuItemTitle = styled.div<{ isHover: boolean }>`
   display: ${({ isHover }) => (isHover ? 'block' : 'none')};
   position: absolute;
   top: -40px;
-  width: 60px;
+  min-width: 60px;
   text-align: center;
   padding: 5px;
   background-color: var(--gray-50);

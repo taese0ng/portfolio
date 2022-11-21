@@ -1,7 +1,7 @@
 import { Modals } from '@components/Desktop';
 import { DockItemType } from '@interfaces/dock';
 
-const { Info, Award, Certificate, Skill, History, Project, Notion, Settings } = Modals;
+const { Info, Award, Certificate, Skill, History, Project, Notion, Settings, DinoGame } = Modals;
 
 const iconUrl = process.env.PUBLIC_URL + '/assets/images/icons';
 
@@ -15,6 +15,7 @@ export const itemIDs = {
   histories: 'histories',
   projects: 'projects',
   notion: 'notion',
+  dinoGame: 'dinoGame',
 };
 
 export const itemList: Array<DockItemType> = [
@@ -98,18 +99,16 @@ export const itemList: Array<DockItemType> = [
     nowOpen: false,
     resizeable: true,
   },
-  // {
-  //   id: itemIDs.finder,
-  //   title: 'Finder',
-  //   isOpen: false,
-  //   icon: `${iconUrl}/finder.webp`,
-  //   component: Finder,
-  //   zIndex: 0,
-  //   isAbsoluteHeader: true,
-  //   width: 800,
-  //   height: 500,
-  //   nowOpen: false,
-  // },
+  {
+    id: itemIDs.dinoGame,
+    title: 'DinoGame',
+    isOpen: false,
+    icon: `${iconUrl}/dinoGame.webp`,
+    component: DinoGame,
+    zIndex: 0,
+    isFull: true,
+    nowOpen: false,
+  },
   {
     id: itemIDs.settings,
     title: '환경설정',

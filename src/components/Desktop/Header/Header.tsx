@@ -152,7 +152,7 @@ const MenuList = styled(Popup)`
     border-radius: 3px;
     cursor: pointer;
 
-    &:hover {
+    :hover {
       background-color: var(--blue-10);
     }
   }
@@ -175,7 +175,8 @@ const LogoWrapper = styled.div`
     width: 17px;
     height: 17px;
     border-radius: 5px;
-    &:hover {
+
+    :hover {
       background-color: var(--white-30per);
     }
   }
