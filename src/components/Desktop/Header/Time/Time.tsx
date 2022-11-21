@@ -2,11 +2,7 @@ import { useEffect, useState } from 'react';
 
 import styled from '@emotion/styled';
 
-interface Props {
-  onOpenCalendar: () => void;
-}
-
-function Time({ onOpenCalendar }: Props) {
+function Time() {
   const [midday, setMidday] = useState('');
   const [hour, setHour] = useState('');
   const [min, setMin] = useState('');
@@ -39,7 +35,7 @@ function Time({ onOpenCalendar }: Props) {
   }, []);
 
   return (
-    <Container onClick={onOpenCalendar}>
+    <Container>
       ٩(◕‿◕｡)۶ {month}월 {date}일 ({day}) {midday}
       {hour}:{min}:{sec}
     </Container>
@@ -51,7 +47,7 @@ export default Time;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  width: 240px;
+  padding: 0 5px;
   height: 100%;
   font-size: 0.9rem;
   white-space: nowrap;

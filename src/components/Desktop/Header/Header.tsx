@@ -9,6 +9,8 @@ import Calendar from './Calendar';
 import Time from './Time';
 
 const logoImg = process.env.PUBLIC_URL + '/assets/images/icons/logo.webp';
+const dock: HTMLDivElement | null = document.querySelector('#dock');
+const header: HTMLDivElement | null = document.querySelector('#header');
 
 interface Props {
   itemList: Array<DockItemType>;
@@ -42,7 +44,19 @@ function Header({ itemList, onOpenModal, onUpperModal }: Props) {
   };
 
   const handleOpenCalendar = () => {
-    setIsOpenedCalendar((prev) => !prev);
+    if (header && dock) {
+      header.style.zIndex = '0';
+      dock.style.zIndex = '-1';
+    }
+    setIsOpenedCalendar(true);
+  };
+
+  const handleCloseCalendar = () => {
+    if (header && dock) {
+      header.style.zIndex = '70000';
+      dock.style.zIndex = '70000';
+    }
+    setIsOpenedCalendar(false);
   };
 
   return (
@@ -67,12 +81,17 @@ function Header({ itemList, onOpenModal, onUpperModal }: Props) {
           </Element>
 
           <Element>
-            <Time onOpenCalendar={handleOpenCalendar} />
+            <TimeWrapper onClick={handleOpenCalendar}>
+              <Time />
+            </TimeWrapper>
 
             {isOpenedCalendar && (
-              <CalendarWrapper>
-                <Calendar />
-              </CalendarWrapper>
+              <>
+                <CalendarWrapper>
+                  <Calendar />
+                </CalendarWrapper>
+                <Dim onClick={handleCloseCalendar} />
+              </>
             )}
           </Element>
         </ElementWrapper>
@@ -162,6 +181,15 @@ const LogoWrapper = styled.div`
   }
 `;
 
+const TimeWrapper = styled.div`
+  border-radius: 5px;
+  cursor: pointer;
+
+  :hover {
+    background-color: var(--white-30per);
+  }
+`;
+
 const ElementWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -175,9 +203,16 @@ const Element = styled.div`
   margin-left: 5px;
   border-radius: 5px;
   padding: 2px 5px;
-  cursor: pointer;
 
   &:hover {
     background-color: $white_30per;
   }
+`;
+
+const Dim = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 `;

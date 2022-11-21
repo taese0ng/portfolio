@@ -16,6 +16,7 @@
     "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "typeRoots": ["./node_modules/@types", "./typings"]
   },
   "include": ["src", "tsconfig.paths.json", "typings"]
